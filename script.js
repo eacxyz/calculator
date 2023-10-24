@@ -25,3 +25,7 @@ function divide() {
 	}
 	return quotient;
 }
+
+let firstNum;
+let operator;
+let secondNum;

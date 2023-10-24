@@ -38,3 +38,11 @@ let secondNum;
 function operate(operator, firstNum, secondNum) {
 	return operator(firstNum, secondNum);
 }
+
+const display = document.querySelector('#display');
+let displayValue;
+const digits = document.querySelectorAll('.digit');
+digits.forEach(digit => digit.addEventListener('click', function(e) {
+	display.textContent += digit.textContent;
+	displayValue = Number(display.textContent);
+}));

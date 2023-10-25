@@ -68,6 +68,11 @@ digits.forEach(digit => digit.addEventListener('click', function(e) {
 
 const buttons = document.querySelectorAll('.operator');
 buttons.forEach(button => button.addEventListener('click', function(e) {
+	if (firstNum) {
+		secondNum = displayValue;
+		displayValue = operate(operator, firstNum, secondNum);
+		display.textContent = displayValue;
+	}
 	firstNum = displayValue;
 	operator = e.target.id;
 	operated = true;

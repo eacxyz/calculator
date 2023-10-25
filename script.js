@@ -81,4 +81,10 @@ clear.addEventListener('click', function(e) {
 	operator = null;
 	displayValue = null;
 	display.textContent = null;
-})
+});
+
+const plusMinus = document.querySelector('#plusMinus');
+plusMinus.addEventListener('click', function (e) {
+	displayValue *= -1;
+	display.textContent = displayValue;
+});

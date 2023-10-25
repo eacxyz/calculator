@@ -34,6 +34,7 @@ const divide = (a, b) => a / b;
 let firstNum;
 let operator;
 let secondNum;
+let operated = false;
 
 function operate(operator, firstNum, secondNum) {
 	switch (operator) {
@@ -56,6 +57,11 @@ let displayValue;
 
 const digits = document.querySelectorAll('.digit');
 digits.forEach(digit => digit.addEventListener('click', function(e) {
+	if (operated) {
+		displayValue = null;
+		display.textContent = null;
+		operated = false;
+	}
 	display.textContent += digit.textContent;
 	displayValue = Number(display.textContent);
 }));
@@ -63,8 +69,8 @@ digits.forEach(digit => digit.addEventListener('click', function(e) {
 const buttons = document.querySelectorAll('.operator');
 buttons.forEach(button => button.addEventListener('click', function(e) {
 	firstNum = displayValue;
-	display.textContent = '';
 	operator = e.target.id;
+	operated = true;
 }));
 
 const equalBtn = document.querySelector('#equals');

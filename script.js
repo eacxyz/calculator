@@ -63,7 +63,7 @@ digits.forEach(digit => digit.addEventListener('click', function(e) {
 const buttons = document.querySelectorAll('.operator');
 buttons.forEach(button => button.addEventListener('click', function(e) {
 	firstNum = displayValue;
-	display.textContent = 0;
+	display.textContent = '';
 	operator = e.target.id;
 }));
 
@@ -73,3 +73,12 @@ equalBtn.addEventListener('click', function(e) {
 	displayValue = operate(operator, firstNum, secondNum);
 	display.textContent = displayValue;
 });
+
+const clear = document.querySelector('#clear');
+clear.addEventListener('click', function(e) {
+	firstNum = null;
+	secondNum = null;
+	operator = null;
+	displayValue = null;
+	display.textContent = null;
+})

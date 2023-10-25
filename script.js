@@ -64,7 +64,7 @@ const buttons = document.querySelectorAll('.operator');
 buttons.forEach(button => button.addEventListener('click', function(e) {
 	firstNum = displayValue;
 	display.textContent = 0;
-	operator = e.target.textContent;
+	operator = e.target.id;
 }));
 
 const equalBtn = document.querySelector('#equals');

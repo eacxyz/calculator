@@ -36,13 +36,40 @@ let operator;
 let secondNum;
 
 function operate(operator, firstNum, secondNum) {
-	return operator(firstNum, secondNum);
+	switch (operator) {
+		case 'add':
+			return add(firstNum, secondNum);
+			break;
+		case 'subtract':
+			return subtract(firstNum, secondNum);
+			break;
+		case 'multiply':
+			return multiply(firstNum, secondNum);
+			break;
+		case 'divide':
+			return divide(firstNum, secondNum);
+	}
 }
 
 const display = document.querySelector('#display');
 let displayValue;
+
 const digits = document.querySelectorAll('.digit');
 digits.forEach(digit => digit.addEventListener('click', function(e) {
 	display.textContent += digit.textContent;
 	displayValue = Number(display.textContent);
 }));
+
+const buttons = document.querySelectorAll('.operator');
+buttons.forEach(button => button.addEventListener('click', function(e) {
+	firstNum = displayValue;
+	display.textContent = 0;
+	operator = e.target.textContent;
+}));
+
+const equalBtn = document.querySelector('#equals');
+equalBtn.addEventListener('click', function(e) {
+	secondNum = displayValue;
+	displayValue = operate(operator, firstNum, secondNum);
+	display.textContent = displayValue;
+});

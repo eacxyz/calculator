@@ -71,7 +71,7 @@ buttons.forEach(button => button.addEventListener('click', function(e) {
 	if (firstNum) {
 		secondNum = displayValue;
 		displayValue = operate(operator, firstNum, secondNum);
-		display.textContent = displayValue;
+		display.textContent = displayValue.toFixed(10) * 10 / 10;
 	}
 	firstNum = displayValue;
 	operator = e.target.id;
@@ -82,7 +82,7 @@ const equalBtn = document.querySelector('#equals');
 equalBtn.addEventListener('click', function(e) {
 	secondNum = displayValue;
 	displayValue = operate(operator, firstNum, secondNum);
-	display.textContent = displayValue;
+	display.textContent = displayValue.toFixed(10) * 10 / 10;
 });
 
 const clear = document.querySelector('#clear');

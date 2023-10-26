@@ -14,7 +14,7 @@
 }
 
 #display {
-	background-color: rgb(69, 69, 69);
+	background-color: rgb(50, 55, 63);
 	height: 72px;
 	text-align: right;
 	padding: 16px;
@@ -45,15 +45,15 @@ button {
 }
 
 .left button {
-	background-color: rgb(87, 79, 79);
+	background-color: rgb(68, 73, 79);
 }
 
 .left .digit {
-	background-color: slategray;
+	background-color: rgb(103, 113, 124);
 }
 
 .right button {
-	background-color: rgb(234, 155, 51);
+	background-color: rgb(243, 161, 55);
 }
 
 #zero {

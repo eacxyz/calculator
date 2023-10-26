@@ -113,3 +113,9 @@ plusMinus.addEventListener('click', function (e) {
 });
 
 const decimal = document.querySelector('#decimal');
+
+const percent = document.querySelector('#percent');
+percent.addEventListener('click', function(e) {
+	displayValue /= 100;
+	display.textContent = displayValue;
+});

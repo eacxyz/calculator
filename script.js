@@ -34,7 +34,7 @@ const divide = (a, b) => a / b;
 let firstNum;
 let operator;
 let secondNum;
-let operated = false;
+let operated = true;
 
 function operate(operator, firstNum, secondNum) {
 	switch (operator) {
@@ -71,7 +71,7 @@ buttons.forEach(button => button.addEventListener('click', function(e) {
 	if (firstNum) {
 		secondNum = displayValue;
 		displayValue = operate(operator, firstNum, secondNum);
-		display.textContent = displayValue.toFixed(10) * 10 / 10;
+		display.textContent = displayValue.toPrecision(10) * 10 / 10;
 	}
 	firstNum = displayValue;
 	operator = e.target.id;
@@ -82,7 +82,8 @@ const equalBtn = document.querySelector('#equals');
 equalBtn.addEventListener('click', function(e) {
 	secondNum = displayValue;
 	displayValue = operate(operator, firstNum, secondNum);
-	display.textContent = displayValue.toFixed(10) * 10 / 10;
+	display.textContent = displayValue.toPrecision(10) * 10 / 10;
+	firstNum = null;
 });
 
 const clear = document.querySelector('#clear');
@@ -91,7 +92,8 @@ clear.addEventListener('click', function(e) {
 	secondNum = null;
 	operator = null;
 	displayValue = null;
-	display.textContent = null;
+	display.textContent = 0;
+	operated = true;
 });
 
 const plusMinus = document.querySelector('#plusMinus');

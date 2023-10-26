@@ -64,6 +64,11 @@ digits.forEach(digit => digit.addEventListener('click', function(e) {
 	}
 	display.textContent += digit.textContent;
 	displayValue = Number(display.textContent);
+	if (display.textContent.includes('.')) {
+		decimal.disabled = true;
+	} else {
+		decimal.disabled = false;
+	}
 }));
 
 const buttons = document.querySelectorAll('.operator');
@@ -76,6 +81,7 @@ buttons.forEach(button => button.addEventListener('click', function(e) {
 	firstNum = displayValue;
 	operator = e.target.id;
 	operated = true;
+	decimal.disabled = false;
 }));
 
 const equalBtn = document.querySelector('#equals');
@@ -84,6 +90,9 @@ equalBtn.addEventListener('click', function(e) {
 	displayValue = operate(operator, firstNum, secondNum);
 	display.textContent = displayValue.toPrecision(10) * 10 / 10;
 	firstNum = null;
+	if (display.textContent.includes('.')) {
+		decimal.disabled = true;
+	}
 });
 
 const clear = document.querySelector('#clear');
@@ -94,6 +103,7 @@ clear.addEventListener('click', function(e) {
 	displayValue = null;
 	display.textContent = 0;
 	operated = true;
+	decimal.disabled = false;
 });
 
 const plusMinus = document.querySelector('#plusMinus');
@@ -101,3 +111,5 @@ plusMinus.addEventListener('click', function (e) {
 	displayValue *= -1;
 	display.textContent = displayValue;
 });
+
+const decimal = document.querySelector('#decimal');
